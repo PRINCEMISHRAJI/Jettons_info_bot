@@ -36,7 +36,7 @@ bot.command("coin", async (ctx) => {
             const parser = symbol.toUpperCase();
             const dataToken = response.data.data[parser];
             const data = dataToken[0];
-            console.log(data);
+            // console.log(data);
             if (data) {
                 const message = `
             💰 <b> ${data.name} : ${data.symbol} (${data.category})</b>
