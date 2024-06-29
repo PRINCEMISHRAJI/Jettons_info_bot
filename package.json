@@ -1,0 +1,17 @@
+{
+  "name": "jettons_info_bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ankit Mishra",
+  "license": "ISC",
+  "description": "Cryptocurrency information bot which fetches data from coinmarketcap and shows to user in telegram",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
