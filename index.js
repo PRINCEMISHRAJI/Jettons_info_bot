@@ -1,10 +1,14 @@
 require('dotenv').config();
 const { Telegraf } = require("telegraf");
 const axios = require("axios");
+const express = require('express');
 
 const Token = process.env.BOT_TOKEN;
 const key = process.env.key;
 const bot = new Telegraf(Token);
+
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 bot.start((ctx) => {
     const query = `
@@ -36,7 +40,7 @@ bot.command("coin", async (ctx) => {
             const parser = symbol.toUpperCase();
             const dataToken = response.data.data[parser];
             const data = dataToken[0];
-            console.log(data);
+            // console.log(data);
             if (data) {
                 const message = `
             💰 <b> ${data.name} : ${data.symbol} (${data.category})</b>
@@ -67,3 +71,11 @@ bot.command("coin", async (ctx) => {
 
 bot.launch();
 console.log("Bot is running successfully");
+
+app.get('/', (req,res) =>{
+    res.send("Bot is running")
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
